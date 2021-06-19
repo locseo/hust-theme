@@ -1,17 +1,24 @@
-// Sample red theme to demonstrate SASS overrides
+$static-path: '/static/style1-test';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,600&display=swap');
 
-// Theme colors
-//
-// Note: define colors needed by your theme first
+$main-color: #e00013;
+$main-color-hover: #b41111b7;
+$font-family-theme: 'Source Sans Pro', sans-serif;
+$bg-primary: #eef2f5;
+$link-header-color: #000000;
+$link-header-color-hover: #dc0000;
+$footer-bg: #000000;
+$link-footer-color: #000000;
+$link-footer-hover: #dc0000d3;
+$courses-bg-image: url('#{$static-path}/images/main-header-site.jpg');
 
-// Define the primary red color
-$red: #d9534f;
+$primary: $main-color;
 
-// Make red the primary color
-$primary: $red;
+$action-primary-bg: $main-color;
+$monospace: $font-family-theme;
+$serif: $font-family-theme;
+$f-serif: $font-family-theme;
+$f-monospace: $font-family-theme;
+$font-family-sans-serif: $font-family-theme;
 
-// Theme fonts
-$font-family-sans-serif: cursive;
-
-// Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';

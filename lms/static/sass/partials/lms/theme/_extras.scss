@@ -1,9 +1,458 @@
-// Extra rules needed for the LMS red theme
-//
-// The _extras.scss file is imported after all other rules by
-// the LMS Sass. For your own theme, you can override this file
-// to add any custom rules that you need. You can also import
-// partials directly into this file so that you can break your
-// rules into modular pieces.
+//-----------------
+// Juniper fixes
+//-----------------
 
-@import 'certificates';
+.content-wrapper.main-container {
+	margin-top: 0;
+	padding: 0;
+	min-height: 73vh;
+}
+
+.content-wrapper .course-tabs.navbar,
+.wrapper-course-material.courseware .course-material {
+	overflow: auto;
+}
+
+.course-content .xmodule_display.xmodule_SequenceModule .sequence-nav .sequence-list-wrapper {
+	overflow: inherit;
+}
+
+.home .courses-container,
+.find-courses .courses-container {
+	padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+	.course-content .xmodule_display.xmodule_SequenceModule .sequence-nav {
+		display: flex;
+		flex-wrap: wrap;
+		height: auto;
+		margin: 0 auto;
+
+		ol {
+			flex-wrap: wrap;
+
+			li {
+				border-right-style: solid;
+				border-left-style: solid;
+			}
+		}
+
+		.sequence-list-wrapper,
+		.sequence-nav-button.button-next,
+		.sequence-nav-button.button-previous {
+			flex: 0 0 100%;
+			max-width: 100%;
+			min-height: 44px;
+			z-index: 2000;
+		}
+
+		.sequence-nav-button.button-next,
+		.sequence-nav-button.button-previous {
+			margin: .75rem 0;
+		}
+	}
+
+	.content-wrapper .course-info {
+		header.course-profile .intro-inner-wrapper {
+			.intro {
+				text-align: center;
+				width: 100%;
+			}
+
+			.media {
+				width: auto;
+
+				img {
+					height: 160px;
+					max-width: 264px;
+				}
+			}
+		}
+
+		.course-sidebar {
+			width: 100%;
+		}
+	}
+
+	.dashboard .main-container .my-courses .course .details .wrapper-course-image {
+		display: block;
+		width: 100%;
+
+		.cover {
+			max-width: 184px;
+		}
+
+		img {
+			height: 120px;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.home .courses-container,
+	.find-courses .courses-container {
+		padding: 0 10px;
+	}
+
+	.find-courses .courses-container .courses:not(.no-course-discovery) {
+		width: 100%;
+	}
+}
+
+// Custom changes
+.window-wrap {
+	background: $bg-primary;
+}
+
+.global-header .header-logo a {
+	height: 45px;
+
+	.logo {
+		height: 48px;
+	}
+}
+
+.wrapper-footer.wrapper {
+	background: $footer-bg;
+	padding: 40px;
+
+	footer#footer-openedx {
+		.footer-links {
+			display: flex;
+			justify-content: space-between;
+
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+			}
+
+			li a,
+			.social-links a {
+				color: $link-footer-color;
+				margin: 0 5px;
+				font-size: 1.1rem;
+
+				&:hover {
+					color: $link-footer-hover;
+					border: none;
+				}
+			}
+		}
+
+		.copyright {
+			color: $link-footer-color;
+			font-size: 1rem;
+		}
+	}
+}
+
+.dashboard .my-courses .course-container {
+	background: $white;
+}
+
+.home>header {
+	background: theme-color("primary");
+}
+
+.courses-header {
+	background-image: $courses-bg-image;
+	margin-bottom: 20px;
+
+	.outer-wrapper {
+		animation: home-header-pop-up 1.15s ease-in-out;
+		animation-fill-mode: both;
+		animation-delay: 1s;
+		position: relative;
+		margin: 0 auto;
+		padding: 60px;
+		max-width: 1200px;
+
+		.title {
+			display: block;
+			margin-right: 2.35765%;
+			width: 65.88078%;
+			margin-left: 17.05961%;
+			box-sizing: border-box;
+			transition: all 0.2s linear 0s;
+			position: relative;
+			box-shadow: 0 4px 5px 0 rgba(0,0,0,0.5);
+			background: #fff;
+			padding: 10px 30px;
+			min-height: 70px;
+			vertical-align: top;
+		}
+
+		.heading-group {
+			left: 0;
+			box-sizing: border-box;
+			transition: all 0.2s linear 0s;
+			text-align: left;
+			top: 0;
+			opacity: 1;
+		}
+
+		h1 {
+			margin: 0;
+		}
+	}
+}
+
+.view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy,
+.view-profile .wrapper-profile-sections,
+.view-profile .badge-set-display {
+	min-width: auto;
+}
+
+.view-profile .badge-set-display .badge-display {
+	width: 100%;
+}
+
+@media (min-width: 992px) {
+	.global-header .nav-links .main {
+		margin-top: 16px;
+
+		.nav-tab a {
+			color: $link-header-color;
+
+			&:hover {
+				color: $link-header-color-hover;
+			}
+		}
+	}
+
+	.course-info .intro-inner-wrapper .media img {
+		height: 140px;
+	}
+}
+
+@media (max-width: 768px) {
+	.window-wrap .instructor-dashboard-wrapper-2 section.idash-section#student_admin input[type="text"] {
+		width: 100%;
+	}
+}
+
+@media (max-width: 992px) {
+	.window-wrap .course-info header.course-profile {
+		.intro-inner-wrapper > div.table {
+			align-items: center;
+			display: flex;
+			flex-direction: column-reverse;
+		}
+
+		.intro-inner-wrapper .intro > .heading-group {
+			justify-content: center;
+		}
+
+		.intro-inner-wrapper .intro .main-cta .register {
+			margin: 0 auto;
+			width: auto;
+		}
+
+		.intro-inner-wrapper .media {
+			width: auto;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.wrapper-footer.wrapper footer#footer-openedx{
+		.footer-links {
+			flex-direction: column;
+			align-items: center;
+
+			ul {
+				margin: 10px;
+				flex-wrap: wrap;
+			}
+		}
+
+		.wrapper-logo,
+		.copyright {
+			text-align: center;
+		}
+	}
+
+	.window-wrap .course-info header.course-profile .intro-inner-wrapper>div.table {
+		width: 90%;
+	}
+
+	.account-settings-sections .section .account-settings-section-body .u-field-social {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.courses-header .title {
+		width: 100%;
+		box-sizing: border-box;
+		margin-left: 0%;
+	}
+
+	.find-courses .courses-container {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 321px) {
+	.courses-header .outer-wrapper {
+		padding: 10px;
+	}
+}
+
+.global-header .header-logo .course-header {
+	margin-top: 21px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 40%;
+
+	.course-name {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.provider,
+	.course-number {
+		display: none;
+	}
+}
+
+.course-info header.course-profile {
+	.intro-inner-wrapper {
+		background-image: url(/static/teclisboa/images/main-header-site.jpg);
+		padding: 3rem 0;
+	}
+
+	.intro-inner-wrapper > div.table {
+		width: 65%;
+		margin: 0 auto;
+		background: #fff;
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	.intro-inner-wrapper {
+		.media {
+			min-width: 250px;
+
+			.hero {
+				border: none;
+			}
+		}
+
+		.intro .main-cta a.register,
+		.intro .main-cta strong {
+			background: $main-color;
+			text-shadow: none;
+			border-color: $main-color;
+			box-shadow: none;
+			padding: 5px 0;
+			font-size: 1rem;
+			width: 30%;
+
+			&:hover:not(:disabled) {
+				background: $main-color-hover;
+			}
+		}
+	}
+
+	.intro-inner-wrapper .intro >.heading-group {
+		display: flex;
+		align-items: baseline;
+		border: none;
+
+		h1 {
+			font-size: 1.5rem;
+			font-weight: 600;
+			margin-right: 1rem;
+		}
+
+		span {
+			color: $main-color;
+			font-style: italic;
+		}
+	}
+}
+
+// Hide link/unlink to/from `Técnico ID` in account page
+div.u-field.u-field-social.u-field-auth-saml-istx-sso,
+div.u-field.u-field-social.u-field-auth-saml-partners-sso,
+div.u-field.u-field-social.u-field-auth-saml-ist {
+	display: none !important;
+}
+
+//Static pages
+.static-page {
+	.pt-text,
+	.en-text {
+		font-size: .8rem;
+		color: #505050;
+		cursor: pointer;
+		text-align: center;
+		transition: .25s linear;
+		padding: 5px;
+		margin-right: 10px;
+		position: relative;
+	}
+
+	.pt-text.active,
+	.en-text.active {
+		color: $main-color;
+	}
+
+	h2 {
+		line-height: 130%;
+		color: #2E323E;
+		font-weight: bold;
+		font-size: 2rem;
+	}
+
+	h3 {
+		margin: 40px 0 20px;
+		font-weight: bold;
+	}
+
+	.lang-opt {
+		display: flex;
+	}
+
+	.pt-text::after,
+	.en-text::after {
+		content: "";
+		display: block;
+		width: 0;
+		height: 2px;
+		background: #c90909;
+		margin-top: 2px;
+		opacity: 0;
+		transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+		left: 50%;
+		position: absolute;
+		-webkit-transition: all .2s ease;
+		transition: all .2s ease;
+	}
+
+	.pt-text.active::after,
+	.en-text.active:after {
+		width: 100%;
+		opacity: 1;
+	}
+}
+
+.course-info .main-cta.safari-wrapper {
+  padding-bottom: 0px;
+}
+
+.course-search .search-button {
+	border: none;
+	background: $main-color;
+
+	&:focus {
+		background: $main-color-hover;
+	}
+}
